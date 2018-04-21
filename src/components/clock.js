@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 
     constructor(props) {
         super(props)
-
+        this.timer = 0
         this.getTimeRemaining = this.getTimeRemaining.bind(this);
-
+        this.birthday = props.birthdayFormState.startDate.toString();
         this.state = {
             timeRemaining: this.getTimeRemaining(this.props.birthdayFormState.startDate.toString())
             
@@ -34,7 +34,12 @@ import React, { Component } from 'react';
 
     }
 
-    componentWillMount() {
+    componentDidMount() {
+                this.timer = setInterval(() => {
+                const timeRemaining = this.getTimeRemaining(this.birthday)
+                this.setState({ timeRemaining: timeRemaining })
+            }, 1000);
+        
         
     }
    
