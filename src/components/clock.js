@@ -85,23 +85,30 @@ import React, { Component } from 'react';
 
     componentWillUnmount() {
         console.log('trying to unmount clock component')
+        clearInterval(this.timer);
     }
    
     
     render() {
         const data = this.state.timeRemaining
-
         return (
-            <div>            
+            <div>      
+            {
+                    this.state.timeRemaining == 0 ?
+                    <h1> Happy Birthday </h1>
+                :     
                 <div>
-                    <div>DAYS {data.days}</div>
+                    <div>
+                        <div>DAYS {data.days}</div>
                         <div>HRS {data.hours}</div>
                         <div>MINS {data.minutes}</div>
                         <div>SECS {data.seconds}</div>
-                    </div>
+                </div>
                     <div>
                         { <h4>remaining until you are {this.getAge()}</h4>}
                     </div>
+                </div>
+            }    
             </div>
         )
     }
