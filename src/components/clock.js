@@ -16,6 +16,7 @@ import React, { Component } from 'react';
         }
     }
 
+
     getTimeRemaining(birthday){
         var bday = new Date(birthday);
         var today = new Date();
@@ -80,8 +81,10 @@ import React, { Component } from 'react';
                 const timeRemaining = this.getTimeRemaining(this.birthday)
                 this.setState({ timeRemaining: timeRemaining })
             }, 1000);
-        
-        
+    }
+
+    componentWillUnmount() {
+        console.log('trying to unmount clock component')
     }
    
     
