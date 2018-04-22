@@ -4,9 +4,12 @@ import React, { Component } from 'react';
 
     constructor(props) {
         super(props)
+
         this.timer = 0
-        this.getTimeRemaining = this.getTimeRemaining.bind(this);
         this.birthday = props.birthdayFormState.startDate.toString();
+        this.getTimeRemaining = this.getTimeRemaining.bind(this);
+        
+
         this.state = {
             timeRemaining: this.getTimeRemaining(this.props.birthdayFormState.startDate.toString())
             
@@ -14,9 +17,8 @@ import React, { Component } from 'react';
     }
 
     getTimeRemaining(birthday){
-
-        var bday = new Date(birthday)
-        let today = new Date();
+        var bday = new Date(birthday);
+        var today = new Date();
 
         var distance = bday.getTime() - today.getTime();
 
@@ -34,6 +36,17 @@ import React, { Component } from 'react';
 
     }
 
+    getAge = function() {
+        var bday = new Date(this.birthday);
+        let today = new Date();
+        var distance = today.getTime() - bday.getTime();
+        var daysOld = Math.floor(distance / (1000 * 60 *60 *24));
+        var yearsOld = Number((daysOld/365).toFixed(0));
+        return yearsOld
+    }.bind(this)
+
+    
+
     componentDidMount() {
                 this.timer = setInterval(() => {
                 const timeRemaining = this.getTimeRemaining(this.birthday)
@@ -48,11 +61,16 @@ import React, { Component } from 'react';
         const data = this.state.timeRemaining
 
         return (
-            <div>                
-                <div>DAYS {data.days}</div>
-                <div>HRS {data.hours}</div>
-                <div>MINS {data.minutes}</div>
-                <div>SECS {data.seconds}</div>
+            <div>            
+                <div>
+                    <div>DAYS {data.days}</div>
+                        <div>HRS {data.hours}</div>
+                        <div>MINS {data.minutes}</div>
+                        <div>SECS {data.seconds}</div>
+                    </div>
+                    <div>
+                        { <h4>remaining until you are {this.getAge()}</h4>}
+                    </div>
             </div>
         )
     }
