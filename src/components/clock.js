@@ -103,10 +103,15 @@ import React, { Component } from 'react';
     render() {
         const data = this.state.timeRemaining
         return (
-            <div className="countdown">      
+            <div>       
             {
                     this.state.timeRemaining == 0 ?
-                    <h1> Happy Birthday </h1>
+                      <div className="countdown">    
+                        <div className="message-container">
+                            <p className="message-container-title">Countdown Complete</p>
+                            <p className="message-container-message">HAPPY BIRTHDAY!</p>
+                        </div>
+                      </div>  
                 :     
                 <div>
                     <div className="countdown">
