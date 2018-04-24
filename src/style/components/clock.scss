@@ -25,44 +25,39 @@
 
 }
 
+
+
 .change-date {
     color: white !important;
-    position: absolute;
-    left: 20%;
-    top: 45%;
     font-size: 18px;
     font-weight: 100;
+    @include center-item($top: 45%, $left: 20%);
 }
 
 
 
 .message-container {
     @include clock-dimensions;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%);
+    @include center-item($pull-y: 0%);
     margin-top: 20px;
    }
 
 .message-container-title {
+    @include center-item($pull-x: 0%, $pull-y: 0%, $top: 5%, $left: 10%);
     font-family: var(--roboto-condensed);
     color: var(--yellow-primary);
     font-size: 22px;
-    position: absolute;
-    left: 10%;
-    top: 5%;
+    
 }
 
 .message-container-message {
+    @include center-item($pull-x: 0%, $pull-y: 0%, $top: 15%, $left: 10%);
     font-family: var(--roboto-condensed);
     color: white;
     font-size: 90px;
     font-weight: bold;
-    position: absolute;
-    left: 10%;
-    bottom: 5%;
     width: 100%;
+    
 }
 
 ul {
