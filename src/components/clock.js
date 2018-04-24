@@ -109,14 +109,14 @@ import React, { Component } from 'react';
                     <h1> Happy Birthday </h1>
                 :     
                 <div>
-                    <div>
-                        <ul className="countdown-clock">
+                    <div className="countdown">
+                        <ul className="countdown__clock">
                             <li>DAYS <p>{data.days}</p></li>
                             <li>HRS <p>{data.hours}</p></li>
                             <li>MINS <p>{data.minutes}</p></li>
                             <li>SECS <p>{data.seconds}</p></li>
                         </ul>
-                </div>
+                    </div>
                     <div>
                        {this.renderMessage()}
                     </div>
