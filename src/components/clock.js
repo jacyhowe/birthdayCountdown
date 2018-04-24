@@ -122,7 +122,7 @@ import React, { Component } from 'react';
                             <li>SECS <p>{data.seconds}</p></li>
                         </ul>
                     </div>
-                    <div>
+                    <div className="until-container">
                        {this.renderMessage()}
                     </div>
                 </div>
